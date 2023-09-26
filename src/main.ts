@@ -4,5 +4,8 @@
 // import { createVariableDemo } from "./examples/variable";
 // createVariableDemo();
 
-import { createTriangularDemo } from "./examples/triangular";
-createTriangularDemo();
+// import { createTriangularDemo } from "./examples/triangular";
+// createTriangularDemo();
+
+import { createAnimationDemo } from "./examples/animation";
+createAnimationDemo();
