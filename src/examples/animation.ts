@@ -30,9 +30,19 @@ export function createAnimationDemo() {
   // shader source
   let vertexSource = `
 attribute vec2 a_position;
-uniform vec4 u_translate;
+uniform float cosB;
+uniform float sinB;
+
 void main() {
-  gl_Position = vec4(a_position, 0.0, 1.0) + u_translate;
+  float x1 = a_position.x;
+  float y1 = a_position.y;
+  float z1 = 0.0;
+
+  float x2 = x1*cosB - y1*sinB;
+  float y2 = x1*sinB + y1*cosB;
+  float z2 = z1;
+
+  gl_Position = vec4(x2, y2, z2, 1.0);
 }
 `;
   let fragmentSource = `
@@ -54,25 +64,20 @@ void main() {
     gl.drawArrays(gl.TRIANGLES, 0, n);
   }
 
-  let tx = 0;
-  let ty = 0;
-  let speed_x = 0.01;
-  let speed_y = 0.02;
+  let deg = 0
 
   function tick() {
-    tx += speed_x;
-    ty += speed_y;
-    if (tx > 0.5 || tx < -0.5) {
-      speed_x *= -1;
-    }
-    if (ty > 0.5 || ty < -0.5) {
-      speed_y *= -1;
-    }
-    const u_translate = gl.getUniformLocation(program, "u_translate");
-    gl.uniform4f(u_translate, tx, ty, 0.0, 0.0);
+
+    deg += 0.5
+
+    const sinB = gl.getUniformLocation(program, "sinB");
+    const cosB = gl.getUniformLocation(program, "cosB");
+    gl.uniform1f(sinB, Math.sin(deg / 180 * Math.PI))
+    gl.uniform1f(cosB, Math.cos(deg / 180 * Math.PI))
+
     draw(gl);
-    requestAnimationFrame(tick);
+    requestAnimationFrame(tick)
   }
 
-  tick();
+  tick()
 }
