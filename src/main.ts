@@ -7,5 +7,5 @@
 // import { createTriangularDemo } from "./examples/triangular";
 // createTriangularDemo();
 
-import { createAnimationDemo } from "./examples/animation";
-createAnimationDemo();
+import { createAnimationMatricesDemo } from "./examples/animation-matrices";
+createAnimationMatricesDemo();
