@@ -71,8 +71,8 @@ void main() {
   let deg = 0;
 
   function tick() {
-    // deg += 1
-    // mat4.fromZRotation(rotate_matrix, (deg / 180) * Math.PI);
+    deg += 1
+    mat4.fromZRotation(rotate_matrix, (deg / 180) * Math.PI);
     let u_matrix = gl.getUniformLocation(program, "u_matrix");
     gl.uniformMatrix4fv(u_matrix, false, rotate_matrix);
     draw(gl);
