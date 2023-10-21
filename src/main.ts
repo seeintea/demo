@@ -7,5 +7,8 @@
 // import { createTriangularDemo } from "./examples/triangular";
 // createTriangularDemo();
 
-import { multiMatricesDemo } from "./examples/multi-matrices";
-multiMatricesDemo();
+// import { multiMatricesDemo } from "./examples/multi-matrices";
+// multiMatricesDemo();
+
+import { textureDemo } from "./examples/texture";
+textureDemo();
