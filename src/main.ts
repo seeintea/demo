@@ -10,5 +10,5 @@
 // import { multiMatricesDemo } from "./examples/multi-matrices";
 // multiMatricesDemo();
 
-import { create3dDemo } from "./examples/3d";
-create3dDemo();
+import { createViewMatrixDemo } from "./examples/view-matrix";
+createViewMatrixDemo();
